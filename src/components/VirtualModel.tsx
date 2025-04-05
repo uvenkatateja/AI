@@ -5,7 +5,7 @@ import * as THREE from "three";
 import { Button } from "@/components/ui/button";
 import { ZoomIn, ZoomOut, RotateCcw, Crown, Footprints } from "lucide-react";
 
-// Enhanced human model with much more realistic features
+
 function HumanModel({ outfit, isChanging, showAccessories, humanLike = true, initialSize = 1 }: { 
   outfit: string, 
   isChanging: boolean,
@@ -20,10 +20,10 @@ function HumanModel({ outfit, isChanging, showAccessories, humanLike = true, ini
   const [scale, setScale] = useState(initialSize);
   const [walkCycle, setWalkCycle] = useState(0);
   
-  // Animation for outfit changing effect - improved to be more subtle
+  
   useEffect(() => {
     if (isChanging) {
-      setScale(scale * 0.95); // Less dramatic scale change
+      setScale(scale * 0.95);
       const timeout = setTimeout(() => setScale(initialSize), 200);
       return () => clearTimeout(timeout);
     }
@@ -31,20 +31,20 @@ function HumanModel({ outfit, isChanging, showAccessories, humanLike = true, ini
   
   useFrame((state) => {
     if (group.current) {
-      // Natural breathing and subtle movement
+      
       group.current.position.y = Math.sin(state.clock.getElapsedTime() * 0.8) * 0.03;
       
-      // Subtle walking animation
+     
       setWalkCycle(state.clock.getElapsedTime());
       
-      // Subtle rotation animation for showcase
-      if (!state.pointer.x) { // Only auto-rotate if user is not interacting
+      
+      if (!state.pointer.x) {
         group.current.rotation.y += 0.001;
       }
     }
   });
 
-  // Map outfit name to color for visualization - with added error handling
+  
   const getOutfitColor = () => {
     try {
       switch(outfit) {
@@ -61,7 +61,7 @@ function HumanModel({ outfit, isChanging, showAccessories, humanLike = true, ini
     }
   };
 
-  // Calculate leg positions for walking effect
+  
   const leftLegAngle = Math.sin(walkCycle * 1.5) * 0.2;
   const rightLegAngle = Math.sin(walkCycle * 1.5 + Math.PI) * 0.2;
   const leftArmAngle = Math.sin(walkCycle * 1.5 + Math.PI) * 0.1;
@@ -364,7 +364,7 @@ function HumanModel({ outfit, isChanging, showAccessories, humanLike = true, ini
   );
 }
 
-// Main VirtualModel component
+
 export default function VirtualModel({ 
   outfit = "casual", 
   initialSize = 1,
@@ -374,7 +374,7 @@ export default function VirtualModel({
   initialSize?: number,
   humanLike?: boolean
 }) {
-  // Track both the previous and current outfit to ensure smooth transitions
+ 
   const [currentOutfit, setCurrentOutfit] = useState(outfit);
   const [isChanging, setIsChanging] = useState(false);
   const [cameraZoom, setCameraZoom] = useState(5.5);
@@ -383,7 +383,7 @@ export default function VirtualModel({
     shoes: true // Show shoes by default
   });
   
-  // Handle outfit prop changes
+
   useEffect(() => {
     if (outfit && outfit !== currentOutfit) {
       setIsChanging(true);
@@ -394,17 +394,17 @@ export default function VirtualModel({
     }
   }, [outfit, currentOutfit]);
 
-  // Update the camera zoom handler
+  
   const handleZoom = (delta: number) => {
     setCameraZoom(prev => {
       const newZoom = prev + delta;
-      return Math.min(Math.max(newZoom, 4), 9); // Adjusted zoom limits for better visibility
+      return Math.min(Math.max(newZoom, 4), 9); 
     });
   };
 
-  // Handle accessory toggle with debouncing to prevent rapid state changes
+  
   const toggleAccessory = (accessory: 'hat' | 'shoes') => {
-    if (isChanging) return; // Don't toggle during transitions
+    if (isChanging) return; 
     
     setShowAccessories(prev => ({
       ...prev,
@@ -412,7 +412,7 @@ export default function VirtualModel({
     }));
   };
 
-  // Use useEffect to set initial zoom based on screen size
+  
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 640) {
@@ -429,7 +429,7 @@ export default function VirtualModel({
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Generate a key for the Canvas to force proper re-rendering on critical changes
+ 
   const canvasKey = `model-${humanLike ? 'human' : 'simple'}-${initialSize}`;
 
   return (
@@ -475,7 +475,7 @@ export default function VirtualModel({
         </Canvas>
       </div>
       
-      {/* Controls section - kept only zoom and accessories */}
+      
       <div className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 flex flex-row gap-2 sm:flex-col">
         <Button 
           size="sm" 
@@ -499,7 +499,7 @@ export default function VirtualModel({
         </Button>
       </div>
       
-      {/* Accessories Controls */}
+     
       <div className="absolute top-2 right-2 sm:top-4 sm:right-4 flex flex-row gap-2">
         <Button
           size="sm"
