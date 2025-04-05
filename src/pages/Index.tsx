@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import FashionCarousel from "@/components/FashionCarousel";
 import FeaturesSection from "@/components/FeaturesSection";
 import VirtualModel from "@/components/VirtualModel";
-import { ArrowRight, Upload, Camera, Shirt, PanelsTopLeft, Tag } from "lucide-react";
+import { ArrowRight, Upload, Camera, Shirt, PanelsTopLeft, Tag, Database, Code, Brain } from "lucide-react";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -17,11 +17,17 @@ const Index = () => {
         <section className="w-full max-w-7xl mx-auto px-4 md:px-8 pt-12 pb-20 md:py-24">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1 animate-fade-in">
+              <div className="inline-flex items-center rounded-full border px-4 py-1.5 text-sm font-medium bg-fashion-charcoal text-white mb-6">
+                <span className="flex items-center gap-1.5">
+                  <Brain className="h-4 w-4" />
+                  <span>AI-Powered Fashion Analysis</span>
+                </span>
+              </div>
               <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
                 Smart Fashion <span className="gradient-text">Recommendations</span>
               </h1>
               <p className="text-lg text-gray-600 mb-8 max-w-md">
-                Upload your clothing images and our system will analyze your style, recommend matching pieces, and suggest perfect occasions.
+                Experience our advanced AI system that analyzes your style through image recognition and provides personalized fashion recommendations.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
@@ -29,7 +35,7 @@ const Index = () => {
                   onClick={() => navigate('/dashboard')}
                   className="w-full sm:w-auto group"
                 >
-                  Try It Now
+                  Try Style Analysis
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
                 <Button 
@@ -38,28 +44,28 @@ const Index = () => {
                   onClick={() => navigate('/login')}
                   className="w-full sm:w-auto"
                 >
-                  Learn More
+                  View Demo
                 </Button>
               </div>
               
-              <div className="mt-8 flex flex-col sm:flex-row gap-6">
-                <div className="flex items-center gap-3">
-                  <div className="bg-primary/10 p-2 rounded-full">
-                    <Shirt className="h-4 w-4 text-primary" />
+              <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="flex items-center gap-3 bg-fashion-charcoal/5 p-3 rounded-lg">
+                  <div className="bg-fashion-blush p-2 rounded-full">
+                    <Camera className="h-4 w-4 text-white" />
                   </div>
-                  <span className="text-sm">Style Analysis</span>
+                  <span className="text-sm">Real-time Analysis</span>
                 </div>
-                <div className="flex items-center gap-3">
-                  <div className="bg-primary/10 p-2 rounded-full">
-                    <Tag className="h-4 w-4 text-primary" />
+                <div className="flex items-center gap-3 bg-fashion-charcoal/5 p-3 rounded-lg">
+                  <div className="bg-fashion-sage p-2 rounded-full">
+                    <Code className="h-4 w-4 text-white" />
                   </div>
-                  <span className="text-sm">Accessory Matches</span>
+                  <span className="text-sm">ML-Powered</span>
                 </div>
-                <div className="flex items-center gap-3">
-                  <div className="bg-primary/10 p-2 rounded-full">
-                    <PanelsTopLeft className="h-4 w-4 text-primary" />
+                <div className="flex items-center gap-3 bg-fashion-charcoal/5 p-3 rounded-lg">
+                  <div className="bg-fashion-blush p-2 rounded-full">
+                    <Database className="h-4 w-4 text-white" />
                   </div>
-                  <span className="text-sm">Occasion Suggestions</span>
+                  <span className="text-sm">Rich Dataset</span>
                 </div>
               </div>
             </div>
@@ -83,34 +89,34 @@ const Index = () => {
         <section className="w-full bg-fashion-charcoal text-white">
           <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24">
             <h2 className="font-serif text-3xl md:text-4xl font-bold mb-10 text-center">
-              How It Works
+              Advanced Technology Stack
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
                 <div className="bg-fashion-blush text-white w-10 h-10 flex items-center justify-center rounded-full mb-4">
-                  1
+                  <Code className="h-5 w-5" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Upload Your Clothing</h3>
+                <h3 className="text-xl font-semibold mb-2">Frontend</h3>
                 <p className="text-gray-300">
-                  Take a photo of your clothing item or upload an existing image to our platform.
+                  Built with React.js and Three.js for interactive 3D visualization and real-time style analysis.
+                </p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
+                <div className="bg-fashion-sage text-white w-10 h-10 flex items-center justify-center rounded-full mb-4">
+                  <Database className="h-5 w-5" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2">Backend</h3>
+                <p className="text-gray-300">
+                  Powered by Flask (Python) with advanced ML models for image classification and style detection.
                 </p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
                 <div className="bg-fashion-blush text-white w-10 h-10 flex items-center justify-center rounded-full mb-4">
-                  2
+                  <Brain className="h-5 w-5" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Identify Style</h3>
+                <h3 className="text-xl font-semibold mb-2">ML Components</h3>
                 <p className="text-gray-300">
-                  Our system analyzes your image to determine style category, color palette, and key characteristics.
-                </p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
-                <div className="bg-fashion-blush text-white w-10 h-10 flex items-center justify-center rounded-full mb-4">
-                  3
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Get Recommendations</h3>
-                <p className="text-gray-300">
-                  Receive personalized suggestions for matching pieces, accessories, and occasions to wear your outfit.
+                  CNN-based image classification and NLP for comprehensive style analysis.
                 </p>
               </div>
             </div>
@@ -122,27 +128,27 @@ const Index = () => {
         <section className="w-full py-16 px-4">
           <div className="max-w-7xl mx-auto">
             <h2 className="font-serif text-2xl md:text-3xl font-bold mb-12 text-center">
-              Advanced Fashion Recognition Technology
+              Comprehensive Fashion Analysis System
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
               <div className="space-y-6">
                 <div className="bg-gray-50 p-4 rounded-lg">
-                  <h3 className="font-medium mb-2">Multiple Style Categories</h3>
+                  <h3 className="font-medium mb-2">Style Detection System</h3>
                   <p className="text-sm text-gray-600">
-                    Our system identifies casual, formal, sporty, elegant, and streetwear styles from your photos.
+                    Real-time clothing analysis with color detection and style classification.
                   </p>
                 </div>
                 <div className="bg-gray-50 p-4 rounded-lg">
-                  <h3 className="font-medium mb-2">Color Analysis</h3>
+                  <h3 className="font-medium mb-2">Image Analysis Pipeline</h3>
                   <p className="text-sm text-gray-600">
-                    Get color palette suggestions that complement your clothing items perfectly.
+                    Advanced preprocessing and feature extraction for accurate style prediction.
                   </p>
                 </div>
                 <div className="bg-gray-50 p-4 rounded-lg">
-                  <h3 className="font-medium mb-2">Complete Outfit Creation</h3>
+                  <h3 className="font-medium mb-2">Rich Dataset Integration</h3>
                   <p className="text-sm text-gray-600">
-                    Turn a single item into a complete outfit with coordinated pieces and accessories.
+                    Comprehensive fashion dataset with high-resolution images and detailed attributes.
                   </p>
                 </div>
               </div>
@@ -159,21 +165,21 @@ const Index = () => {
               
               <div className="space-y-6">
                 <div className="bg-gray-50 p-4 rounded-lg">
-                  <h3 className="font-medium mb-2">Occasion Recommendations</h3>
+                  <h3 className="font-medium mb-2">3D Visualization</h3>
                   <p className="text-sm text-gray-600">
-                    Discover the perfect settings and events where your outfits will shine.
+                    Interactive Three.js rendering with realistic fabric simulation.
                   </p>
                 </div>
                 <div className="bg-gray-50 p-4 rounded-lg">
-                  <h3 className="font-medium mb-2">Accessory Matching</h3>
+                  <h3 className="font-medium mb-2">Smart Recommendations</h3>
                   <p className="text-sm text-gray-600">
-                    Find the ideal accessories to complement and enhance your clothing styles.
+                    AI-powered suggestions for complementary items and occasions.
                   </p>
                 </div>
                 <div className="bg-gray-50 p-4 rounded-lg">
-                  <h3 className="font-medium mb-2">Style Visualization</h3>
+                  <h3 className="font-medium mb-2">Future Ready</h3>
                   <p className="text-sm text-gray-600">
-                    See your recommended styles demonstrated with interactive 3D models.
+                    Prepared for AR integration and virtual try-on capabilities.
                   </p>
                 </div>
               </div>
@@ -184,10 +190,10 @@ const Index = () => {
         <section className="w-full bg-gradient-to-r from-fashion-blush to-fashion-sage py-16">
           <div className="max-w-4xl mx-auto px-4 text-center text-white">
             <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6">
-              Discover Your Perfect Style
+              Experience AI-Powered Fashion Analysis
             </h2>
             <p className="text-lg mb-8 max-w-2xl mx-auto">
-              Join thousands of fashion enthusiasts who have enhanced their wardrobe with our Fashion Recommendation System.
+              Join us in revolutionizing the fashion industry with cutting-edge AI technology and personalized style recommendations.
             </p>
             <Button 
               size="lg" 
@@ -203,7 +209,7 @@ const Index = () => {
       <footer className="w-full border-t py-6 px-4 md:px-8">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-gray-500">
-            © 2025 Fashion Recommendation System. All rights reserved.
+            © 2025 AI Fashion Analysis System. All rights reserved.
           </p>
           <div className="flex gap-6 mt-4 md:mt-0">
             <a href="#" className="text-sm text-gray-500 hover:text-gray-900">Privacy</a>

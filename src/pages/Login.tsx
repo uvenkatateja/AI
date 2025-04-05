@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -8,6 +7,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { useToast } from "@/components/ui/use-toast";
 import { useAuth } from "@/contexts/AuthContext";
 import Navbar from "@/components/Navbar";
+import { Home } from "lucide-react";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -69,26 +69,36 @@ const Login = () => {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       
-      <main className="flex-grow flex items-center justify-center px-4 py-12">
-        <Card className="w-full max-w-md mx-auto shadow-lg animate-fade-in">
-          <CardHeader className="space-y-1">
-            <CardTitle className="text-2xl font-serif">Sign In</CardTitle>
-            <CardDescription>
+      <main className="flex-grow flex flex-col items-center justify-center px-4 py-8 sm:py-12">
+        <Button 
+          variant="ghost" 
+          className="mb-4 self-start ml-4 sm:ml-8 md:ml-12 flex items-center gap-2" 
+          onClick={() => navigate("/")}
+        >
+          <Home size={18} />
+          <span>Back to Home</span>
+        </Button>
+        
+        <Card className="w-full max-w-[340px] sm:max-w-md mx-auto shadow-lg animate-fade-in">
+          <CardHeader className="space-y-1 px-4 sm:px-6">
+            <CardTitle className="text-xl sm:text-2xl font-serif">Sign In</CardTitle>
+            <CardDescription className="text-sm">
               Enter your credentials to access your account
             </CardDescription>
           </CardHeader>
-          <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="space-y-2">
+          <CardContent className="px-4 sm:px-6">
+            <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
+              <div className="space-y-1 sm:space-y-2">
                 <Label htmlFor="username">Username</Label>
                 <Input
                   id="username"
                   placeholder="guest"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
+                  className="h-9 sm:h-10"
                 />
               </div>
-              <div className="space-y-2">
+              <div className="space-y-1 sm:space-y-2">
                 <Label htmlFor="password">Password</Label>
                 <Input
                   id="password"
@@ -96,11 +106,12 @@ const Login = () => {
                   placeholder="style123"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  className="h-9 sm:h-10"
                 />
               </div>
               <Button 
                 type="submit" 
-                className="w-full" 
+                className="w-full h-9 sm:h-10 mt-2" 
                 disabled={isLoading}
               >
                 {isLoading ? (
@@ -117,7 +128,7 @@ const Login = () => {
               </Button>
             </form>
             
-            <div className="relative my-4">
+            <div className="relative my-3 sm:my-4">
               <div className="absolute inset-0 flex items-center">
                 <span className="w-full border-t" />
               </div>
@@ -130,14 +141,14 @@ const Login = () => {
             
             <Button
               variant="outline"
-              className="w-full"
+              className="w-full h-9 sm:h-10"
               onClick={handleGuestLogin}
             >
               Login as Guest
             </Button>
           </CardContent>
-          <CardFooter className="justify-center">
-            <p className="text-xs text-muted-foreground">
+          <CardFooter className="justify-center px-4 sm:px-6 pb-4 sm:pb-6">
+            <p className="text-xs text-muted-foreground text-center">
               Demo credentials: username "guest", password "style123"
             </p>
           </CardFooter>
